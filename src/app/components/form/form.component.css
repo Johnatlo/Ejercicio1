@@ -1,0 +1,37 @@
+.error {
+  color: red;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "A form b";
+  font-family: "Oswald", sans-serif;
+}
+
+.A {
+  grid-area: A;
+}
+
+.form {
+  grid-area: form;
+  text-align: center;
+}
+
+.b {
+  grid-area: b;
+}
+
+.btn {
+  background-color: cornflowerblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

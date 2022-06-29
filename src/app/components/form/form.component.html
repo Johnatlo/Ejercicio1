@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="A"></div>
+  <div class="form">
+    <div>
+      <h1>Formulario Producto</h1>
+
+      <form [formGroup]="productForm">
+        <label>Nombre *: </label>
+        <input type="text" formControlName="nombre" required /><br />
+        <span class="error" *ngIf="error.nombre.errors"
+          ><span *ngIf="error.nombre.errors.required"
+            >¡Advertencia! Este campo es requerido</span
+          ></span
+        >
+        <span class="error" *ngIf="error.nombre.errors"
+          ><span *ngIf="error.nombre.errors.minlength"
+            >¡Aún falta! Recibimos mínimo 5 caracteres</span
+          ></span
+        >
+        <span class="error" *ngIf="error.nombre.errors"
+          ><span *ngIf="error.nombre.errors.maxlength"
+            >¡Cuidado! Solo puedes tener un máximo de 20 caracteres</span
+          ></span
+        >
+
+        <br />
+        <br />
+
+        <label>Precio *: </label>
+        <input type="number" formControlName="precio" required /><br />
+        <span class="error" *ngIf="error.precio.errors"
+          ><span *ngIf="error.precio.errors.required"
+            >¡Advertencia! Este campo es requerido</span
+          ></span
+        >
+        <span class="error" *ngIf="error.precio.errors"
+          ><span *ngIf="error.precio.errors.min"
+            >¡Aún falta! El precio debe ser mínimo 5</span
+          ></span
+        >
+        <span class="error" *ngIf="error.precio.errors"
+          ><span *ngIf="error.precio.errors.max"
+            >¡Cuidado! El precio puede ser máximo 20</span
+          ></span
+        >
+
+        <br />
+        <br />
+
+        <button
+          class="btn"
+          (click)="saveForm(productForm)"
+          [disabled]="productForm.invalid"
+          cdkFocusInitial
+        >
+          Guardar
+        </button>
+      </form>
+      <br />
+      <div *ngIf="productForm.invalid && invalid">
+        Usted ha tenido los siguientes errores en la validacion del formulario:
+        <br />
+        <br />
+        <div *ngFor="let item of errores">
+          <label>Campo: {{ item.campo }} Error: {{ item.error }}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b"></div>
+</div>
